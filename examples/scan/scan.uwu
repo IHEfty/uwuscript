@@ -1,0 +1,47 @@
+space = " "
+colors = [
+	"Color_Off",  "Black",     "Red",        "Green",
+	"Yellow",     "Blue",      "Purple",     "Cyan",
+	"White",      "BBlack",    "BRed",       "BGreen",
+	"BYellow",    "BBlue",     "BPurple",    "BCyan",
+	"BWhite",     "UBlack",    "URed",       "UGreen",
+	"UYellow",    "UBlue",     "UPurple",    "UCyan",
+	"UWhite",     "On_Black",  "On_Red",     "On_Green",
+	"On_Yellow",  "On_Blue",   "On_Purple",  "On_Cyan",
+	"On_White",   "IBlack",    "IPurple",       "IGreen",
+	"IYellow",    "IBlue",     "IRed",    "ICyan",
+	"IWhite",     "BIBlack",   "BIRed",      "BIGreen",
+	"BIYellow",   "BIBlue",    "BIPurple",   "BICyan",
+	"BIWhite",    "On_IBlack", "On_IRed",    "On_IGreen",
+	"On_IYellow", "On_IBlue",  "On_IPurple", "On_ICyan",
+	"On_IWhite"
+]
+
+
+fn logDir (dirname, deep) {
+	deep = deep + 1
+	color = "IWhite"
+	if deep <= len(colors) {
+		color = colors[deep - 1]
+	}
+	filepaths = fs.readDir(dirname, 0)
+	dirpaths = fs.readDir(dirname, 1)
+	for path in filepaths {
+		bra = "├"
+		if filepaths[len(filepaths) - 1] == path { 
+			bra = "└"
+		}
+		printC(color,  space * (deep-1) + bra + "─" * deep)
+		println(path)
+	}
+	for path in dirpaths {
+		__path = dirname + "\\" + path
+		print(space * deep)
+		printCln(color, path)
+		logDir(__path, deep)
+	}
+	deep = deep - 1
+}
+
+
+logDir("C:\\", 0)
