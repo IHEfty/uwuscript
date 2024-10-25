@@ -1,0 +1,21 @@
+//Number
+myNumber = 100
+//Strig
+myString = "hello"
+//Boolean true or false
+myBoolean = true
+myList = [1, 2, 3, 4, "5", myNumber, myString, myBoolean]
+myMap = {
+	"name" : "Asif",
+	"age" : "17",
+	"Lang" : "Straw",
+	"list_data" : myList
+}
+
+printCln("Yellow", myNumber)
+printCln("Green", myString)
+printCln("Red", myBoolean)
+printCln("Blue", myList)
+printCln("IBlue", myMap)
+
+while true {} // for pausing
