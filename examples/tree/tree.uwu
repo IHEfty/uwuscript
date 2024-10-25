@@ -1,0 +1,65 @@
+colors = [
+	"Color_Off",  "Red",       "Green",
+	"Yellow",     "Blue",      "Purple",     "Cyan",
+	"White",      "BRed",      "BGreen",
+	"BYellow",    "BBlue",     "BPurple",    "BCyan",
+	"BWhite",     "URed",      "UGreen",
+	"UYellow",    "UBlue",     "UPurple",    "UCyan",
+	"UWhite",     "On_Red",    "On_Green",
+	"On_Yellow",  "On_Blue",   "On_Purple",  "On_Cyan",
+	 "IBlack",    "IPurple",   "IGreen",
+	"IYellow",    "IBlue",     "IRed",       "ICyan",
+	"IWhite",     "BIRed",     "BIGreen",
+	"BIYellow",   "BIBlue",    "BIPurple",   "BICyan",
+	"BIWhite",    "On_IBlack", "On_IRed",    "On_IGreen",
+	"On_IYellow", "On_IBlue",  "On_IPurple", "On_ICyan",
+	"On_IWhite"
+]
+
+fn logDir (dirname, deep) {
+	//files
+	//color change korte hoile deep + ? (1-57) modde jekono akta number dao number uporer colors hiseve hobe...
+	deep = deep + 1
+	color = "IWhite"
+	if deep <= len(colors) {
+		color = colors[deep - 1]
+	}
+	filepaths = fs.readDir(dirname, 0)
+	dirpaths = fs.readDir(dirname, 1)
+	for path in filepaths {
+		if (filepaths[len(filepaths) - 1] == path) { 
+			printC(color,  makeSpace(deep-1, " ") + "└" + makeSpace(deep, "─"))
+		}
+		else {
+			printC(color,  makeSpace(deep-1, " ") + "├" + makeSpace(deep, "─"))
+		}
+		println(path)
+	}
+	for path in dirpaths {
+		__path = dirname + "\\" + path 
+		// printC("Green", "│")
+		print(makeSpace(deep, " "))
+		printCln(color, path)
+		// if len(filepaths) > 0 { printC("Green", makeSpace(deep, "  ") + "│\n") }
+		logDir(__path, deep)
+	}
+	deep = deep - 1
+}
+
+
+fn makeSpace(i, c) {
+	str = ""
+	for _ in range(i) {
+		str = str + c
+	}
+	return str
+}
+
+logDir("./", 0)
+
+colors = [ "IWhite" ]
+for color in colors {
+	printC(color, "Sponsored by Straw -feel the test")
+}
+
+while true {}
