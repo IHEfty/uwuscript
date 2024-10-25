@@ -1,0 +1,27 @@
+fn encrypt(text, iv) {
+	res = ""
+	
+	for x in text {
+		res = res + char(rune(x) + iv)
+	}
+	
+	return res
+}
+
+fn decrypt(text, iv) {
+	res = ""
+	
+	for x in text {
+		res = res + char(rune(x) - iv)
+	}
+	
+	return res
+}
+
+text = "Hello Fucker"
+
+enc = encrypt("hello", 101)
+dec = decrypt(enc, 101)
+
+print(enc)
+print(dec)
