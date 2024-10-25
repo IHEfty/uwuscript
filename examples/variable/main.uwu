@@ -1,0 +1,8 @@
+x = "Hello"
+y = "Straw"
+u = "or"
+a = "My"
+b = "Straw"
+
+
+print(x, y, u, a, b)
