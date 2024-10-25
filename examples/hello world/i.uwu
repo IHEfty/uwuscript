@@ -1,0 +1,48 @@
+l = "Hello"
+i = 0
+while i < 10 {
+    // print(l[i])
+    i = i + 1
+}
+
+print(l[4])
+print(l[3])
+print(l[2])
+print(l[1])
+print(l[0])
+
+// // // x = 0
+// // // while x < 10 {
+    // // // print(l)
+    // // // x = x - 9
+// // // }
+// // // println(l)
+// fn rev_str(input) {
+	// output = "" // empty string
+	
+	
+	
+	// return output
+// }
+
+// myStr = "Hello"
+
+// print(rev_str(myStr))
+
+fn rev_str(input) {
+	output = "" // empty string
+	
+	i = len(input)
+	while i > 0 {
+		single_character = input[i - 1]
+		output = output + single_character
+		i = i - 1
+	}
+	
+	
+	return output
+}
+
+myStr = "Hello"
+
+printCln("Green", rev_str(myStr))
