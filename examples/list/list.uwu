@@ -1,0 +1,35 @@
+fn cancel_terminal() {
+    exit()  
+}
+
+while true {
+    print(">")
+    input = readline()
+    if input == "fn (lst)" {
+	
+    printCln("IRed", "3rdProtoType")
+    printCln("IRed", "4thProtoType")
+	printCln("Black", "Wooh")
+    }
+	
+    else if input == "Wooh" {
+        printC("IRed", "Name         : ")
+        printCln("IWhite", "Wooh")
+        printC("IRed", "Date of Birth: ")
+        printCln("IYellow", "No Need")
+        }
+
+		
+    else if input == "Woohh" {
+    printC("IWhite", "wooh")
+    printCln("IRed", " 231022")
+    }
+	
+    else if input == "clr" {
+	printCln("IRed", "Delete")
+        cancel_terminal()
+    }
+	else if input == "$" {
+        printCln("IWhite", "Sponsored by Straw -feel the test")
+    }
+}
